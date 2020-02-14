@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'ol_mjj!*^pkgn+%1o8m$t#4xx^vw)3
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ["localhost", "https://voilaa.herokuapp.com/"]
+ALLOWED_HOSTS = ['localhost', 'voilaa.herokuapp.com']
 
 
 # Application definition
