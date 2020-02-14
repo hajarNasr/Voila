@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'blog-css/unsubsribe-email.css' %}">
+<link href="{% static 'images/favicon.ico' %}" rel="icon" type="image/x-icon" />
+<title>Unsubscribe</title>
+</head>
+<body>
+<div id="wrapper">
+<h2>Please, enter your email to unsubscribe!</h2>
+<form method="post">
+    {% csrf_token %}
+   {{ unsubscribe_form }}<br><br>
+  <input type="submit" value="Submit" id="submit">
+</form>
+{% if messages %}
+<div id="error-msg">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+</body>
+</html>

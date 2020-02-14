@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_link %}
+<link rel="stylesheet" href="{% static 'blog-css/blog-index.css' %}" type="text/css" media="screen">
+<link rel="stylesheet" href="{% static 'blog-css/post-detail.css' %}" type="text/css" media="screen">
+{% endblock %}
+{% block title %} {{post.title}} {% endblock %}
+{% block main_content %}
+
+<div class="container" id="post-area">
+   <div id="post-title">
+    <h2><code>"{{post.title}}"</code></h2><h6 id="pub_date">Published on: {{ post.pub_date.date }}</h6>
+    <hr>
+   </div>
+   <div id="post-body">
+    <p><span id="first-character">{{post.body|slice:"0:1"}}</span>{{ post.body | slice:"1:"|linebreaksbr }}</p> 
+   </div>
+
+   <hr>
+    <div id="post-categories">
+       {% for category in post.categories.all %}
+           &nbsp;<a href="{{ category.get_absolute_url }}"> #{{category.name }} &nbsp;</a>
+      {% endfor %} 
+       
+    </div>
+    <div id="comments-area">
+   <div id="show-comments-area">
+   {% if comments_count %}
+   <div>
+       <h6 id="show-comments">Comments({{comments_count}})</h6>
+   </div>
+   {% endif %}
+   <div id="comments">
+
+    {% for comment in comments.all%}
+       <div id="commenter-name">{{ comment.name }}</div>
+       <div id="comment-body">{{comment.comment}} <br><small>{{ comment.created_on|timesince }} ago.</small>
+       {% for reply in comment.replies.all %}
+          <div class="ml-3" id="replies-area">
+             <div id="reply-name"><small><b>{{reply.name}}</b></small></div>
+             <div class="ml-4 reply-color">{{reply.comment}}</div>
+             <div class="ml-4 reply-color"><small>{{ reply.created_on|timesince}} ago.</small></div>
+          </div>
+       {% endfor %}    
+     
+<!---------------------Reply Form-->
+<div class="navbar-toggler" data-toggle="collapse" data-target="#comment{{comment.id}}" aria-controls="comment{{comment.id}}"
+     aria-expanded="false" aria-label="Toggle navigation">
+     <h6 id="reply">Reply</h6>
+</div>
+<div id="comment{{comment.id}}" class="collapse reply-form">
+   <form method="post" class="">
+      {% csrf_token %}
+        <label for="reply-author">Name</label>&nbsp;
+        {{reply_form.name}} <br>
+        <label  for="reply-email">Email</label>  &nbsp; 
+        {{reply_form.email}}<br>
+        <label for="reply-textarea">Reply </label> &nbsp;
+        {{reply_form.comment}}<br>
+      <input type="hidden" name="parent_comment_id" value="{{comment.id}}">
+      <input type="submit" id="reply-btn" value="Reply">
+   </form>
+  </div> 
+</div> 
+<!---------------> 
+    {% endfor %}
+   </div> 
+</div>
+   <div id="comment-form" >
+      <form action="{{ post.get_absolute_url }}" method="post" class="form">
+         {% csrf_token %}
+         <div class="input-div">
+           <label for="comment-author">Name</label>&nbsp; &nbsp; &nbsp; &nbsp;
+           {{comment_form.name}} <br>
+           <label  for="comment-email">Email</label>  &nbsp; &nbsp; &nbsp; &nbsp;
+           {{comment_form.email}}<br>
+           <label for="comment-textarea">Comment </label> 
+           {{comment_form.comment}}<br>
+        </div> 
+         <input type="submit" id="comment-btn" value="Comment">
+      </form>
+     </div> 
+</div> 
+</div>
+{% endblock %}
+

@@ -1,0 +1,7 @@
+{% extends 'blog/blog-index.html' %}
+{% block title %} All #{{ request.path|slice:'14:' }} posts {% endblock %}
+{% block add_things %}
+<div id="" class="container text-center">
+    <h3><code class="text-secondary">All posts for hashtag "{{ request.path|slice:'14:' }}"</code></h3><br>
+</div>
+{% endblock %}

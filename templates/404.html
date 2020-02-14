@@ -1,0 +1,23 @@
+<!--This page renders only for page not found error -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="x-ua-compatible" content="=ie=edge">
+        <link rel="stylesheet" href="{% static 'css/404.css' %}" type="text/css" media="screen">
+        <link href="https://fonts.googleapis.com/css?family=Frijole|Cabin+Sketch|Bad Script|Itim|Fredericka+the+Great|Pattaya|Material+Icons" rel="stylesheet">
+        <link href="{% static 'images/favicon.ico' %}" rel="icon" type="image/x-icon" />
+        <title>404 Page Not Found</title>
+    </head>
+    <body>
+        <div id="img-div"><img src="{% static 'images/05.png'  %}"></div>
+        <div id="page-not-found">
+            <h1>404 <br>ERROR!</h1>
+            <h2>Page Not Found.</h2>
+            <br>
+        </div>
+        <a href="{% url 'base_view' %}" id="back-link"><h3>Back to Voila</h3></a>
+    </body>
+</html>

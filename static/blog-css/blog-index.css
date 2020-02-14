@@ -1,0 +1,117 @@
+body{
+    background: #d9d9d9;
+   
+}
+#header-img{
+    padding: 0;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+#header-img img{
+    margin: auto;
+    width: 100%;
+    display: block;
+    z-index: 1000000;
+}
+#hashtag-posts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box-shadow{
+    position: relative;
+}
+.box-shadow:before, .box-shadow:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.box-shadow:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+.post{
+    border-radius: 5px;
+    background-color: whitesmoke;
+    color: rgb(69, 69, 75);
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+#post-title{
+    text-align: center;
+    padding-top: 5px;
+    font-family: Patrick Hand;
+}
+
+#pub_date{
+    color: gray;
+}
+#first-character{
+    font-size: xx-large;
+}
+#post-body p{
+    font-size: medium;
+    text-align: justify;
+    text-justify: inter-word; 
+    color: rgb(100, 97, 97);
+}
+
+#post-body, #post-categories, hr{
+    width:95%;
+    margin:auto;
+}
+#post-body a, #post-categories a, #post-title a, #first-character{
+    color: rgba(48, 10, 41, 0.788);
+}
+#post-categories a{
+    background-color: rgb(221, 216, 216);
+}
+#post-categories a:hover{
+    background-color: whitesmoke;
+}
+#post-categories{
+    margin-top:10px;
+    padding-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#empty-content{
+    margin:auto;
+    display: grid;
+    justify-content: center;
+    color:red;
+}
+@media (max-width:767px){
+  .post{
+      width:95%;
+  }
+  #post-categories{
+    width:98%;
+}
+}
+#footer{
+    margin-top:auto;
+    background-color:#d9d9d9;;
+}

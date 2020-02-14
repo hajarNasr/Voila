@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<style>
+a{ 
+    text-decoration: none;  
+    color: rgb(41, 123, 173);
+}
+a:hover{
+    text-decoration: underline;
+}
+#wrapper{
+    margin-top: 20px;
+}
+</style>
+</head> 
+<body>
+<div id="wrapper">
+    <div id="top">  
+    <span id="name">{{name}}</span> has replied to your comment on <a href="{{VOILA_HOST}}{{ post.get_absolute_url }}"><span id="title">{{post.title}}</span></a> 
+    on <a href="{{VOILA_HOST}}">Voila</a>
+    </div>  
+    <div id="middle">
+        <br>
+    To prevent the website form notifying you of new replies to that comment, please,
+    <a href="{{VOILA_HOST}}{% url 'blog:unsubscribe_from_post_view' comment_id %}">unsubscribe</a>.
+    Or if you wish to never recieve email notifications from this website <a href="{{VOILA_HOST}}{% url 'blog:unsubscribe_from_all_posts_view' %}">
+        click here</a>.
+    </div>    
+    <br>
+     
+</div>
+</body>
+</html>

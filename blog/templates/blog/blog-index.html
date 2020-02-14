@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css_link %}<link rel="stylesheet" href="{% static 'blog-css/blog-index.css' %}" type="text/css" media="screen">{% endblock %}
+{% block title %} Voila- Blog {% endblock %}
+{% block empty_content %}{% endblock %}
+{% block main_content %}
+
+<div id="header-img">
+  <img src="{% static 'images/magic-wand.png' %}">
+</div>
+
+{% block add_things %}{% endblock %}
+{% if posts.all %}
+{% for post in posts %}
+<div class="container post box-shadow">
+  <div id="post-title">
+     <h2><a href="{{ post.get_absolute_url }}"><code>{{post.title}}</code></a></h2> 
+     <h6 id="pub_date">Published on: {{ post.pub_date.date }}</h6>
+     <hr>
+  </div>
+  <div id="post-body">
+<p><span id="first-character">{{post.body|slice:"0:1"}}</span>{{ post.body | slice:"1:400" }}...<a href="{{post.get_absolute_url}}">Continue reading.</a></p> 
+</div>
+<hr>
+<div id="post-categories"> 
+     {% for category in post.categories.all %}
+     &nbsp;<a href="{{ category.get_absolute_url }}">#{{ category.name }} &ensp;</a>
+      {% endfor %}   
+</div>
+</div>
+{% endfor %}  
+{% else %}
+  <div id="empty-content" class="container">
+    <p>Sorry, the posts you're looking for don't exist.</p>
+  </div>
+{% endif %}
+{% endblock %}
