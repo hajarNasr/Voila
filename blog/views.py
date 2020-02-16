@@ -25,7 +25,7 @@ class CategoryIndexView(generic.ListView):
     def get_queryset(self):
         '''Return every post that has <category> in its set of categories ordered from newest to oldest'''
         category = self.kwargs['category']
-        return Post.objects.filter(categories__name = category.lower()).order_by('-pub_date')
+        return Post.objects.filter(categories__name__iexact = category).order_by('-pub_date')
 
 class PostDetailView(generic.DetailView):
     model = Post
