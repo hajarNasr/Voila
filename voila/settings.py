@@ -131,7 +131,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-VOILA_HOST = "http://localhost:8000"
+VOILA_HOST = "https://voilaa.herokuapp.com"
 
 MY_EMAIL = 'voilamagicmail@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
