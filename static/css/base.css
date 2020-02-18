@@ -118,6 +118,11 @@ a{text-decoration: none;}
     border-top: 1px solid whitesmoke;
     border-bottom:1px solid whitesmoke;
 }
+@media (max-width:767px){
+    #contact-inner-right{
+        padding-bottom: 23px;
+    }
+}
 .mdl-textfield{
     width: 90%;
     margin-left:10px;
@@ -320,6 +325,14 @@ hr.hr{
     #bio, #tech{
         width: 90%;
         align-self: center;
+    }
+    #bio{
+        padding-top: 20px;
+        margin-bottom: 35px;
+        margin-top:25px;
+    }
+    #tech{
+        margin-bottom: 25px;
     }
 }
 @media (max-width:320px){
