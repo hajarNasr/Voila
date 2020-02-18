@@ -7,6 +7,7 @@ from voila.forms import ContactForm
 class TestPageNotFoundView(TestCase):
     def test_page_not_found_renders_404(self):
         response = self.client.get("doesnt_exist_view")
+        self.assertEqual(response.status_code, 404)
         self.assertTemplateUsed("404.html")  
 
 class TestBaseView(TestCase):

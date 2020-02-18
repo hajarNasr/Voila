@@ -6,3 +6,5 @@
 
 # virtual environment
 voila-venv/
+
+staticfiles/

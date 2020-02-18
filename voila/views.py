@@ -6,7 +6,9 @@ from voila.settings import MY_EMAIL as my_email
 
 
 def page_not_found(request, exception):
-    return render(request, "404.html", {}) 
+    response = render(request, '404.html', {})
+    response.status_code = 404
+    return response
   
 def base_view(request):
     if request.method == 'POST':

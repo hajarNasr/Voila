@@ -30,8 +30,7 @@ STATICFILES_DIRS = (
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'ol_mjj!*^pkgn+%1o8m$t#4xx^vw)3b7x3ipwc#^+gk%e=us9z')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'voilaa.herokuapp.com']
 
